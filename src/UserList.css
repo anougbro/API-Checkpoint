@@ -1,0 +1,397 @@
+.user-list-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  margin-bottom: 50px;
+  animation: slideDown 0.6s ease-out;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header .subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.header .count {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Error State */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.error-message {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  background-color: rgba(255, 107, 107, 0.3);
+  padding: 20px 30px;
+  border-radius: 10px;
+  border-left: 5px solid #ff6b6b;
+}
+
+.error-container button {
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.error-container button:hover {
+  background-color: #ee5a52;
+  transform: translateY(-2px);
+}
+
+/* Users Grid */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* User Card */
+.user-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.user-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.user-card.active {
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+  border: 2px solid #667eea;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* User Avatar */
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* User Info */
+.user-info {
+  margin-bottom: 15px;
+}
+
+.user-name {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.user-username {
+  color: #667eea;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* User Contact */
+.user-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.user-email,
+.user-phone,
+.user-website {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.user-email a,
+.user-website a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.user-email a:hover,
+.user-website a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.icon {
+  font-size: 1.2rem;
+  min-width: 20px;
+}
+
+/* User Details (Expandable) */
+.user-details {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #f0f0f0;
+  animation: slideDown 0.3s ease-out;
+}
+
+.details-section {
+  margin-bottom: 15px;
+}
+
+.details-section:last-child {
+  margin-bottom: 0;
+}
+
+.details-section h4 {
+  color: #667eea;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.details-section p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.catch-phrase {
+  font-style: italic;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+/* Expand Icon */
+.expand-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: #667eea;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.user-card.active .expand-icon {
+  color: #764ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-list-container {
+    padding: 30px 15px;
+  }
+
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .user-card {
+    padding: 20px;
+  }
+
+  .user-avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+
+  .user-name {
+    font-size: 1.3rem;
+  }
+
+  .user-email,
+  .user-phone,
+  .user-website {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-list-container {
+    padding: 20px 10px;
+  }
+
+  .users-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .user-card {
+    padding: 15px;
+  }
+
+  .user-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .user-name {
+    font-size: 1.1rem;
+  }
+
+  .user-username {
+    font-size: 0.85rem;
+  }
+
+  .user-email,
+  .user-phone,
+  .user-website {
+    font-size: 0.8rem;
+  }
+
+  .expand-icon {
+    top: 15px;
+    right: 15px;
+  }
+
+  .details-section h4 {
+    font-size: 0.85rem;
+  }
+
+  .details-section p {
+    font-size: 0.8rem;
+  }
+}
